@@ -7,7 +7,7 @@ close all;
 %=================== Parametros ==================================
 N=10;		 % Periodo de simbolo, longitud del pulso, siempre debe ser par
 L=10;		 % Numero de bits a transmitir
-tipopulso=1; %1: pulso rectangular 
+tipopulso=1; 
        
 
 %=================== Generacion del pulso =========================
@@ -31,7 +31,7 @@ end
 %=================== Calculo de la energia del pulso =============
 %Escriba el codigo para calcular la energia
 
-energia = sum(abs(pulso.^2));
+energia = sum(pulso.^2);
 
 %=================== Generacion de la senal (modulacion) =========
 
@@ -48,7 +48,9 @@ k = 1;
 for i = 1:length(bits)
     for j = 1:length(pulso)
         if bits(i) == 1
-            senal(k) = bits(i) * pulso(j);
+            senal(k) = 0;
+        else
+            senal(k) = 1;
         end
         k = k + 1;
     end
@@ -66,7 +68,7 @@ grid;
 %Escriba el codigo para representar la senal
 figure(2)
 %subplot(122);
-plot((1:N*L)/10, senal);
+plot((1:N*L), senal);
 title('Senal transmitida: p(n)');
 axis padded;
 grid on;
