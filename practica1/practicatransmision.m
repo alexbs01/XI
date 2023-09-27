@@ -7,7 +7,7 @@ close all;
 %=================== Parametros ==================================
 N=10;		 % Periodo de simbolo, longitud del pulso, siempre debe ser par
 L=10;		 % Numero de bits a transmitir
-tipopulso=1; 
+tipopulso=3; 
        
 
 %=================== Generacion del pulso =========================
@@ -50,8 +50,9 @@ for i = 1:length(bits)
         if bits(i) == 1
             senal(k) = 0;
         else
-            senal(k) = 1;
+            senal(k) = pulso(j);
         end
+        
         k = k + 1;
     end
 end
